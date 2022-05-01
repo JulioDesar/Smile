@@ -17,8 +17,8 @@
 # Sample preview running the app:
 
 <div align="center">
-   <a href="https://smiledents.netlify.app">Preview Netlify</a>
-   <a href="https://smiledents.netlify.app"><img src="https://user-images.githubusercontent.com/81544166/159756470-adf0ad26-3b4a-49aa-a737-513535067ddc.png" alt="Preview Build"></a>
+   <a href="https://glittery-souffle-9fa793.netlify.app">Preview Netlify</a>
+   <a href="https://glittery-souffle-9fa793.netlify.app"><img src="https://user-images.githubusercontent.com/81544166/159756470-adf0ad26-3b4a-49aa-a737-513535067ddc.png" alt="Preview Build"></a>
 </div>
 
 # Contributing
@@ -45,15 +45,11 @@ npm start
 ## Features
 
 - [x] Landing page
-- [ ] Dashboard admin
-- [ ] CRUD Client
-- [ ] CRUD Consultation
+- [x] Dashboard admin
+- [x] CRUD Client
+- [x] CRUD Consultation
 
 # Author
-
-👤 **Caio Santos**
-
-- Github: [@zCaioSantos](https://github.com/zCaioSantos)
 
 👤 **Gabriela Duques**
 

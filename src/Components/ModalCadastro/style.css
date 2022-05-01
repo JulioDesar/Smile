@@ -1,0 +1,167 @@
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background: url("../../../public/dArrow.svg") no-repeat; 
+    margin-right: 12px;
+    margin-top: 8px;
+}
+
+input[type="number"] {
+    margin-right: 75px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    padding-right: 120px;
+}
+
+
+.Modal-cadastro-fundo {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    backdrop-filter: blur(1px) saturate(200%);
+    -webkit-backdrop-filter: blur(5px) saturate(200%);
+    background-color: rgba(17, 25, 40, 0.5);
+
+    width: 100%;
+    height: 110%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: fadeIn .3s ease;
+}
+
+.Modal-cadastro-fundo.visible {
+    display: flex;
+}
+
+.Modal-cadastro-fundo.hidden {
+    display: none;
+}
+
+
+.Modal-cadastro-container {
+    height: 400px;
+    width: 1000px;
+
+    background: linear-gradient(180deg, #E2E8F0 0%, #B6D9EF 100%);
+    border-radius: 50px;
+
+    box-shadow: 0px 5px 15px rgba(0, 0, 13, 0.15);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    z-index: 5;
+
+    animation: moveY .5s ease;
+}
+
+.Modal-cadastro-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 30px;
+    width: 30px;
+    
+    background-color: #FC8181;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: background-color .3s ease;
+}
+
+.Modal-cadastro-close:hover {
+    background-color: #E53E3E;
+}
+
+.Modal-cadastro-form{
+    position: absolute;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 90%;
+    top: 50px;
+    left: 50px;
+}
+
+.button-check {
+    cursor: pointer;
+    position: absolute;
+
+    background-color: #9AE6B4;
+    box-shadow: 0px 5px 15px rgba(0, 0, 13, 0.15);
+    border-radius: 50px;
+    height: 45px;
+    width: 200px;
+
+    bottom: 30px;
+    right: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.button-check text, .button-cancel text {
+    margin: 0px 20px;
+}
+
+.button-cancel {
+    position: absolute;
+
+    background-color: #FC8181;
+    box-shadow: 0px 5px 15px rgba(0, 0, 13, 0.15);
+    border-radius: 50px;
+    height: 45px;
+    width: 200px;
+
+    bottom: 30px;
+    right: 250px;  
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+.form-button-cancel:hover {
+    background-color: #E53E3E;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes moveY {
+    0% {
+        transform: translateY(50px);
+    }
+    100% {
+        transform: translateY(none);
+    }
+}

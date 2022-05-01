@@ -1,0 +1,80 @@
+:root {
+    --gradient: linear-gradient(163deg, #3182ce 0%, #63b3ed 100%);
+    --gradient-dark: linear-gradient(31deg, #313860 0%, #151928 100%);; 
+    
+    overflow: hidden
+}
+
+.Login-Container {
+    width: 100%;
+    height: 100vh;
+
+    background-color: #F4F7FA;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Login-Container-img {
+    margin-bottom: 5em;
+    margin-top: 1em;
+}
+
+.Login-Container > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Login-button {
+    background: var(--gradient);
+
+    width: 365px;
+    padding: 10px;
+    margin-top: 10px;
+
+    border-radius: 50px;
+
+    color: white;
+    font-size: 1rem;
+    line-height: 150%; 
+    letter-spacing: 0.075em;
+
+    border: none;
+    outline: none;
+
+    transition: background 3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+}
+
+.Login-button::before {
+    content: "";
+    
+    height: 100%;
+    width: 100%;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    border-radius: 50px;
+    background: var(--gradient-dark);
+    
+    z-index: -1;
+    opacity: 0;
+    transition: .5s ease;
+}
+
+.Login-button:hover::before {
+    opacity: 1;
+}
+
+.Login-button:active {
+    transform: scale(0.9);
+}

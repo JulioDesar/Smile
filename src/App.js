@@ -1,0 +1,13 @@
+import React from "react";
+import "./Global.css";
+import RoutesApp from "./Routes";
+
+function App() {
+    return (
+        <div className="App">
+            <RoutesApp />
+        </div>
+    );
+}
+
+export default App;

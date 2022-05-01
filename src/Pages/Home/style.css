@@ -1,0 +1,316 @@
+.Home-container {
+    width: 100vw;
+    height: 100vh;
+
+    padding: 2em 0 0 0;
+
+    margin: 1em 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5em;
+
+    background-color: linear-gradient(180deg, #D0DCEC 100%, #B6D9EF 100%);
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1040px;
+}
+
+
+.title {
+    color: #1A365D;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.paragrafo {
+    color: #1E4E8C;
+    font-size: 1.1em;
+    Line-height: 27px;
+}
+
+.smal-paragrafo {
+    color: #2A69AC;
+    font-weight: 400;
+    font-size: 0.9em;
+    line-height: 150%;
+    letter-spacing: 0.075em;
+}
+
+.img-fluid {
+    width: auto;
+    max-height: 280px;
+}
+
+
+/* Primeiro assunto */
+
+.primeira__section {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.primeira__section > section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.8em;
+
+    width: 60%;
+}
+
+
+/* Segunda section  */
+
+.segunda__section {
+    width: 100%;
+    padding: 5em;
+    position: relative;
+}
+
+.segunda__section::before {
+    content: "";
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: -5%;
+
+    background: #EDF2F7;
+    box-shadow: 0px 5px 15px rgba(0, 0, 13, 0.15);
+    border-radius: 0px 50px 50px 0px;
+
+    z-index: -1;
+}
+
+.segunda__section > section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.8em;
+}
+
+.segunda__section > section > figure {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.8em;
+}
+
+.segunda__section > section > figure > img {
+    width: auto;
+    max-height: 21.875rem;
+}
+
+.segunda__section > section > figure > figcaption {
+    width: 60%;
+}
+
+/* terceira section  */
+
+.terceira__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.8em;
+}
+
+.terceira__section > div > p {
+    margin-bottom: 1em;
+}
+
+/* Quarta section  */
+
+.quarta__section {
+    width: 100%;
+    padding: 5em;
+
+    position: relative;
+}
+
+.quarta__section::before {
+    content: "";
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    right: -5%;
+
+    background: #EDF2F7;
+    box-shadow: 0px 5px 15px rgba(0, 0, 13, 0.15);
+    border-radius: 50px 0px 0px 50px;
+
+    z-index: -1;
+}
+
+.quarta__section > section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.quarta__section > section > img {
+    width: 25rem;
+    height: auto;
+}
+
+.quarta__section > section > article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.quarta__section > section > article > p {
+    text-align: center;
+}
+
+.quarta__section > section > article > button {
+    padding: 15px 70px;
+    border-radius: 50px;
+    border: none;
+    background: #F8F9FA;
+    box-shadow: 0px 5px 15px rgba(0, 0, 13, 0.15);
+
+    font-weight: 700;
+    font-size: 1em;
+    line-height: 150%;
+
+    letter-spacing: 0.075em;
+
+    color: #1E4E8C;
+
+    cursor: pointer;
+    transition: background .3s ease;
+}
+
+.quarta__section > section > article > button:hover {
+    background: #d3d3d4;
+}
+
+@media (max-width: 1040px) {
+
+    .Home-container {
+        padding: 1em 2em 0 2em;
+    }
+
+    .primeira__section {
+        width: 100%;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1em;
+
+        text-align: center;
+    }
+
+    .primeira__section > section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+    }
+
+    /* segunda  */
+
+    .segunda__section::before {
+        content: "";
+        position: absolute;
+    
+        width: 100%;
+        height: 100%;
+    
+        top: 0;
+        left: 0;
+    
+        background: #EDF2F7;
+        box-shadow: 0px 5px 15px rgba(0, 0, 13, 0.15);
+        border-radius: 0;
+    
+        z-index: -1;
+    }
+    
+    .segunda__section > section > figure {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap-reverse;
+        gap: 1.8em;
+        text-align: center;
+
+        width: 100%;
+    }
+
+    .segunda__section > section > figure > figcaption {
+        width: 100%;
+    }
+
+    .terceira__section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1.8em;
+        width: 85%;
+    }
+
+    .quarta__section::before {
+        content: "";
+        position: absolute;
+    
+        width: 100%;
+        height: 100%;
+    
+        top: 0;
+        right: 0;
+    
+        background: #EDF2F7;
+        box-shadow: 0px 5px 15px rgba(0, 0, 13, 0.15);
+        border-radius: 0;
+    
+        z-index: -1;
+    }
+
+    .quarta__section > section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+
+
+    .img-fluid {
+        width: 100%;
+    }
+
+    .segunda__section > section > figure > img {
+        width: 100%;
+    }
+
+    .quarta__section > section > img {
+        width: 150%;
+        height: auto;
+    }
+}

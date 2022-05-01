@@ -1,0 +1,84 @@
+:root {
+    --gradient: linear-gradient(163deg, #3182ce 0%, #63b3ed 100%);
+    --gradient-dark: linear-gradient(31deg, #313860 0%, #151928 100%);;
+}
+
+.NotFound-Container {
+    width: 100vw;
+    height: 100vh;
+    padding: 10px;
+
+    background-color: #F4F7FA;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.NotFound-Container-Text {
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.625rem;
+
+    margin: 3.125rem 0;
+}
+
+.NotFound-Container button {
+    background: var(--gradient);
+
+    width: 320px;
+    padding: 10px;
+
+    border-radius: 50px;
+
+    color: white;
+    font-size: 1rem;
+    line-height: 150%; 
+    letter-spacing: 0.075em;
+
+    border: none;
+    outline: none;
+
+    transition: background 3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+}
+
+.NotFound-Container button::before {
+    content: "";
+    
+    height: 100%;
+    width: 100%;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    border-radius: 50px;
+    background: var(--gradient-dark);
+    
+    z-index: -1;
+    opacity: 0;
+    transition: .5s ease;
+}
+
+.NotFound-Container button:hover::before {
+    opacity: 1;
+}
+
+.NotFound-Container button:active {
+    transform: scale(0.9);
+}
+
+
+@media (max-width: 600px) {
+    .NotFound-Container-Text {
+        font-size: 1.25rem;
+    }
+}

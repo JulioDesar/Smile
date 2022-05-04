@@ -71,7 +71,7 @@
     display: none;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
 
     .navbarAdmin {
         position: relative;
@@ -92,13 +92,50 @@
         align-items: center;
         justify-content: space-between;
     
-        left: 95vh;
-        width: 40%;
+        left: 45em;
+        width: 50%;
     }
 
     .AdminCliente-Container {
 
         height: 116vh;
+    
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin-left: 20%;
+        margin-right: 5%;
+    }
+    
+}
+@media (max-width: 1366px) {
+
+    .navbarAdmin {
+        position: relative;
+        top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: 20%;
+        margin-right: 5%;
+    }
+
+    .inputAdmin {
+        position: relative;
+        top: 30px;
+    
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    
+        left: 40em;
+        width: 50%;
+    }
+
+    .AdminCliente-Container {
+
+        height: 130vh;
     
         display: flex;
         justify-content: center;

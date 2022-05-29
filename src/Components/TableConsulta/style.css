@@ -43,6 +43,7 @@
 
 .onHover {
     cursor: pointer;
+    width: 15px;
 }
 
 .table-opcoes {

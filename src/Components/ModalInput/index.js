@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-// import { BiUser } from "react-icons/bi";
 
 export default function ModalInput(props) {
     return (
@@ -10,6 +9,8 @@ export default function ModalInput(props) {
                 type={props.type}
                 placeholder={props.msg}
                 size={props.size}
+                value={props.value}
+                onChange={props.onChange}
                 className="Modal-input"
             />
         </label>

@@ -1,4 +1,6 @@
-import React from "react";
+import axios from "axios";
+import Moment from "moment";
+import React, { useState } from "react";
 import "./style.css";
 import { FiX } from "react-icons/fi";
 import Input from "../ModalInput/index";
@@ -19,6 +21,30 @@ function ModalCadastro(props) {
     const telefone = <BiPhone size={25} color="#2A69AC" />;
     const endereco = <BiMap size={25} color="#2A69AC" />;
     const calendario = <BiCalendarAlt size={25} color="#2A69AC" />;
+
+    const [Unome, setUnome] = useState("");
+    const [Ucpf, setUcpf] = useState("");
+    const [Uemail, setUemail] = useState("");
+    const [Utelefone, setUtelefone] = useState("");
+    const [Uendereco, setUendereco] = useState("");
+    const [Udata, setUdata] = useState(null);
+
+    async function salvarCliente() {
+        const dateFormat = Moment(Udata).format("DD/MM/YYYY");
+        const bodyRequest = {
+            nome: Unome,
+            cpf: Ucpf,
+            email: Uemail,
+            telefone: Utelefone,
+            endereco: Uendereco,
+            aniversario: dateFormat,
+        };
+
+        console.log(bodyRequest);
+        await axios.post("http://localhost:5000/cliente/", bodyRequest);
+        alert("Funcionou");
+    }
+
     return (
         <>
             {props.visible && (
@@ -37,18 +63,27 @@ function ModalCadastro(props) {
                                 type="text"
                                 msg="Nome Completo"
                                 size={40}
+                                value={Unome}
+                                onChange={(e) => setUnome(e.target.value)}
                             />
                             <Input
                                 icon={CPF}
-                                type="number"
+                                type="text"
                                 msg="CPF"
-                                size={40}
+                                size={30}
+                                pattern="[0-9]{11}"
+                                value={Ucpf}
+                                onChange={(e) =>
+                                    Number(setUcpf(e.target.value))
+                                }
                             />
                             <Input
                                 icon={email}
                                 type="email"
                                 msg="E-mail"
                                 size={40}
+                                value={Uemail}
+                                onChange={(e) => setUemail(e.target.value)}
                             />
                             <Input
                                 icon={telefone}
@@ -56,26 +91,39 @@ function ModalCadastro(props) {
                                 msg="Telefone"
                                 size={30}
                                 pattern="[0-9]{5}-[0-9]{4}"
+                                value={Utelefone}
+                                onChange={(e) =>
+                                    Number(setUtelefone(e.target.value))
+                                }
                             />
                             <Input
                                 icon={endereco}
                                 type="text"
                                 msg="Endereço"
                                 size={53}
+                                value={Uendereco}
+                                onChange={(e) => setUendereco(e.target.value)}
                             />
-                            <Input icon={calendario} type="date" />
+                            <Input
+                                icon={calendario}
+                                type="date"
+                                value={Udata}
+                                onChange={(e) => Date(setUdata(e.target.value))}
+                            />
                         </form>
                         <form>
-                            <label className="button-check">
+                            <label
+                                className="button-check"
+                                onClick={salvarCliente}
+                            >
                                 <BiCheck size={25} color="#1C4532" />
                                 <text>Confirmar</text>
                             </label>
-                            <label className="button-cancel">
-                                <FiX
-                                    size={25}
-                                    color="#63171B"
-                                    onClick={props.setClose}
-                                />
+                            <label
+                                className="button-cancel"
+                                onClick={props.setClose}
+                            >
+                                <FiX size={25} color="#63171B" />
                                 <text>Cancelar</text>
                             </label>
                         </form>

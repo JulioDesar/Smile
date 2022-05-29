@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import "./style.css";
 import { FiX } from "react-icons/fi";
 import Input from "../ModalInput/index";
+import ModalAviso from "../ModalAviso/index";
 import {
     BiUser,
     BiEnvelope,
@@ -29,6 +30,16 @@ function ModalCadastro(props) {
     const [Uendereco, setUendereco] = useState("");
     const [Udata, setUdata] = useState(null);
 
+    const [error, setError] = useState(false);
+    const toggle = () => {
+        setError(!error);
+    };
+
+    const [cadastro, setCadastro] = useState(false);
+    const toggleCadastro = () => {
+        setCadastro(!cadastro);
+    };
+
     async function salvarCliente() {
         const dateFormat = Moment(Udata).format("DD/MM/YYYY");
         const bodyRequest = {
@@ -41,8 +52,10 @@ function ModalCadastro(props) {
         };
 
         console.log(bodyRequest);
-        await axios.post("http://localhost:5000/cliente/", bodyRequest);
-        alert("Funcionou");
+        await axios
+            .post("http://localhost:5000/cliente/", bodyRequest)
+            .then(toggleCadastro)
+            .catch(toggle);
     }
 
     return (
@@ -130,6 +143,18 @@ function ModalCadastro(props) {
                     </section>
                 </div>
             )}
+            <ModalAviso
+                msg="Falha ao cadastrar cliente"
+                tipo={false}
+                visible={error}
+                setClose={toggle}
+            />
+            <ModalAviso
+                msg="Cadastro foi concluido com sucesso!"
+                tipo={true}
+                visible={cadastro}
+                setClose={toggleCadastro}
+            />
         </>
     );
 }

@@ -16,6 +16,15 @@ function TableCliente() {
         }
     }
 
+    async function deletarClientes(cliente) {
+        await axios
+            .delete(`http://localhost:5000/cliente/${cliente}`)
+            .catch((err) => {
+                console.log(err);
+                console.log(cliente);
+            });
+    }
+
     useEffect(() => {
         carregarClientes();
     }, []);
@@ -51,6 +60,7 @@ function TableCliente() {
                                     size={18}
                                     style={{ cursor: "pointer" }}
                                     color="#E53E3E"
+                                    onClick={() => deletarClientes(item.id)}
                                 />
                             </div>
                         </td>

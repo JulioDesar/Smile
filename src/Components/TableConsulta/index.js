@@ -17,6 +17,14 @@ function TableConsulta() {
         }
     }
 
+    async function deletarConsultas(consulta) {
+        await axios
+            .delete(`http://localhost:5000/consulta/${consulta}`)
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
     useEffect(() => {
         carregarConsultas();
     }, []);
@@ -56,6 +64,7 @@ function TableConsulta() {
                                     size={18}
                                     style={{ cursor: "pointer" }}
                                     color="#E53E3E"
+                                    onClick={() => deletarConsultas(item.id)}
                                 />
                             </div>
                         </td>

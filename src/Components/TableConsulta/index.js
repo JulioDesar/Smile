@@ -20,9 +20,14 @@ function TableConsulta() {
     async function deletarConsultas(consulta) {
         await axios
             .delete(`http://localhost:5000/consulta/${consulta}`)
+            .then(refreshPage)
             .catch((err) => {
                 console.log(err);
             });
+    }
+
+    function refreshPage() {
+        window.location.reload(false);
     }
 
     useEffect(() => {

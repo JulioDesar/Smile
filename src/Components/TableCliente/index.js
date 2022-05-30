@@ -19,10 +19,15 @@ function TableCliente() {
     async function deletarClientes(cliente) {
         await axios
             .delete(`http://localhost:5000/cliente/${cliente}`)
+            .then(refreshPage)
             .catch((err) => {
                 console.log(err);
                 console.log(cliente);
             });
+    }
+
+    function refreshPage() {
+        window.location.reload(false);
     }
 
     useEffect(() => {

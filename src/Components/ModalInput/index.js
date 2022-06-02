@@ -10,6 +10,7 @@ export default function ModalInput(props) {
                 placeholder={props.msg}
                 size={props.size}
                 value={props.value}
+                pattern={props.pattern}
                 onChange={props.onChange}
                 className="Modal-input"
             />

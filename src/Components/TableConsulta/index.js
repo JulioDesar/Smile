@@ -28,9 +28,53 @@ function TableConsulta() {
             });
     }
 
+    async function mudarStatus(consulta, status) {
+        const body = {
+            status: mudar(status),
+        };
+
+        await axios
+            .put(
+                `https://smile-dents-api.herokuapp.com/consulta/${consulta}`,
+                body
+            )
+            .then(refreshPage)
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+    function mudar(props) {
+        if (props == "AGENDADO") {
+            return "DISPONIVEL";
+        }
+
+        if (props == "DISPONIVEL") {
+            return "CANCELADO";
+        }
+
+        if (props == "CANCELADO") {
+            return "AGENDADO";
+        }
+    }
+
     function refreshPage() {
         window.location.reload(false);
     }
+
+    const status = (props) => {
+        if (props == "AGENDADO") {
+            return <BiCircle size={25} color="0BC5EA" />;
+        }
+
+        if (props == "DISPONIVEL") {
+            return <BiCircle size={25} color="68D391" />;
+        }
+
+        if (props == "CANCELADO") {
+            return <BiCircle size={25} color="FC8181" />;
+        }
+    };
 
     useEffect(() => {
         carregarConsultas();
@@ -56,8 +100,13 @@ function TableConsulta() {
                         <td>{item.data_consulta}</td>
                         <td>{item.descricao}</td>
                         <td>
-                            <div className="onHover">
-                                <BiCircle size={25} color="FC8181" />
+                            <div
+                                className="onHover"
+                                onClick={() =>
+                                    mudarStatus(item.id, item.status)
+                                }
+                            >
+                                {status(item.status)}
                             </div>
                         </td>
                         <td>

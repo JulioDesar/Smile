@@ -9,7 +9,7 @@ function TableCliente() {
     async function carregarClientes() {
         try {
             await axios
-                .get("http://localhost:5000/cliente/")
+                .get("https://smile-dents-api.herokuapp.com/cliente/")
                 .then((resp) => setClientes(resp.data));
         } catch (err) {
             console.error(err);
@@ -18,7 +18,7 @@ function TableCliente() {
 
     async function deletarClientes(cliente) {
         await axios
-            .delete(`http://localhost:5000/cliente/${cliente}`)
+            .delete(`https://smile-dents-api.herokuapp.com/cliente/${cliente}`)
             .then(refreshPage)
             .catch((err) => {
                 console.log(err);

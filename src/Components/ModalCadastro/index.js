@@ -53,7 +53,7 @@ function ModalCadastro(props) {
 
         console.log(bodyRequest);
         await axios
-            .post("http://localhost:5000/cliente/", bodyRequest)
+            .post("https://smile-dents-api.herokuapp.com/cliente/", bodyRequest)
             .then(toggleCadastro)
             .catch(toggle);
     }

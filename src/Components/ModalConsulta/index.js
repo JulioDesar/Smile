@@ -34,7 +34,9 @@ function ModalConsulta(props) {
         const dateFormat = Moment(data).format("DD/MM/YYYY hh:mm:ss");
 
         await axios
-            .get(`http://localhost:5000/cliente/buscaCpf?cpf=${cliente}`)
+            .get(
+                `https://smile-dents-api.herokuapp.com/cliente/buscaCpf?cpf=${cliente}`
+            )
             .then((resp) => setCli(resp.data))
             .catch(
                 toggle,
@@ -49,7 +51,10 @@ function ModalConsulta(props) {
         };
 
         await axios
-            .post("http://localhost:5000/consulta/", bodyRequest)
+            .post(
+                "https://smile-dents-api.herokuapp.com/consulta/",
+                bodyRequest
+            )
             .then(toggleCadastro)
             .catch(toggle, toggleMsg("Falha ao marcar consulta"));
     }

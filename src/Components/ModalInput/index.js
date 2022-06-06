@@ -13,6 +13,7 @@ export default function ModalInput(props) {
                 pattern={props.pattern}
                 onChange={props.onChange}
                 className="Modal-input"
+                disabled={props.disabled}
             />
         </label>
     );

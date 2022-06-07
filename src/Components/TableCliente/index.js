@@ -2,9 +2,15 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import { FiSettings, FiTrash2 } from "react-icons/fi";
+import ModalAviso from "../ModalAviso/index";
 
 function TableCliente() {
     const [clientes, setClientes] = useState([]);
+    const [error, setError] = useState(false);
+    const toggle = () => {
+        setError(!error);
+        carregarClientes();
+    };
 
     async function carregarClientes() {
         try {
@@ -19,15 +25,8 @@ function TableCliente() {
     async function deletarClientes(cliente) {
         await axios
             .delete(`https://smile-dents-api.herokuapp.com/cliente/${cliente}`)
-            .then(refreshPage)
-            .catch((err) => {
-                console.log(err);
-                console.log(cliente);
-            });
-    }
-
-    function refreshPage() {
-        window.location.reload(false);
+            .then(carregarClientes)
+            .catch(toggle);
     }
 
     useEffect(() => {
@@ -46,7 +45,7 @@ function TableCliente() {
                     <th>Opções</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody onChange={carregarClientes}>
                 {clientes.map((item) => (
                     <tr key={item.id}>
                         <td>{item.id}</td>
@@ -72,6 +71,12 @@ function TableCliente() {
                     </tr>
                 ))}
             </tbody>
+            <ModalAviso
+                msg="Cliente com consulta marcada!"
+                tipo={false}
+                visible={error}
+                setClose={toggle}
+            />
         </table>
     );
 }

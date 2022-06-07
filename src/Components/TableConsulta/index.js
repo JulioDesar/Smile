@@ -22,7 +22,7 @@ function TableConsulta() {
             .delete(
                 `https://smile-dents-api.herokuapp.com/consulta/${consulta}`
             )
-            .then(refreshPage)
+            .then(carregarConsultas)
             .catch((err) => {
                 console.log(err);
             });
@@ -38,7 +38,7 @@ function TableConsulta() {
                 `https://smile-dents-api.herokuapp.com/consulta/${consulta}`,
                 body
             )
-            .then(refreshPage)
+            .then(carregarConsultas)
             .catch((err) => {
                 console.log(err);
             });
@@ -56,10 +56,6 @@ function TableConsulta() {
         if (props == "CANCELADO") {
             return "AGENDADO";
         }
-    }
-
-    function refreshPage() {
-        window.location.reload(false);
     }
 
     const status = (props) => {

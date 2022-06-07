@@ -46,8 +46,6 @@
     align-items: center;
     justify-content: center;
     padding: 12px;
-
-    animation: scroll-in .8s forwards;
 }
 
 .navBarLateral-list li text:not(:hover) {
@@ -56,15 +54,7 @@
     align-items: center;
     justify-content: center;
     padding: 12px;
-
-    animation: scroll-out .8s;
 }
-
-/* .square {
-    background-color: #3182CE;
-    width: 10px;
-    height: 45px;
-} */
 
 .line {
     border: 1px solid #3182CE;
@@ -74,22 +64,4 @@
     
     display: flex;
     align-items: center;
-}
-
-@keyframes scroll-in {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(20px);
-    }
-}
-
-@keyframes scroll-out {
-    from {
-        transform: translateX(20px);
-    }
-    to {
-        transform: translateX(0);
-    }
 }
